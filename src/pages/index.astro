@@ -2,16 +2,17 @@
 import Layout from "../layouts/Layout.astro";
 import Character from "../components/character.astro";
 import CharacterInfo from "../components/characterInfo.astro";
-
-const selectCharacter = (name: string) => `./img/characters/${name}.png`;
+import selectCharacter from "../utils/selectCharacter";
+import PickerCharacter from "../components/PickerCharacter.astro";
+import { charactersData } from "../const/charactersData";
 ---
 
 <Layout title="Mortal Kombat Selector">
   <main
-    class="relative flex justify-center items-centertext-center size-full h-screen bg-center bg-cover bg-no-repeat"
+    class="relative flex justify-center items-center text-center size-full h-screen bg-center bg-cover bg-no-repeat p-6"
     style="background-image: url('./img/background.jpg');"
   >
-    <div class="absolute inset-0 bg-black opacity-20 z-0"></div>
+    <div class="absolute inset-0 bg-black opacity-30 z-0"></div>
     <div class="z-10 w-full">
       <div class="absolute bottom-10 left-10 w-[360px]">
         <img src="./img/mortal_kombat_title.png" alt="" />
@@ -19,17 +20,18 @@ const selectCharacter = (name: string) => `./img/characters/${name}.png`;
       <div class="absolute top-10 right-10 w-24">
         <img src="./img/mk_11_logo.png" alt="" />
       </div>
-      <section class="w-full flex justify-center relative">
-        <div>
-          <CharacterInfo
-            characterName="Scorpion"
-            characterDescription="A resurrected ninja specter, Scorpion is a hellspawned warrior who seeks vengeance against those who wronged him and his clan."
-          />
-        </div>
+      <section class="h-[500px] w-full flex justify-center relative">
+        <CharacterInfo
+          characterName="Scorpion"
+          characterDescription="A resurrected ninja specter, Scorpion is a hellspawned warrior who seeks vengeance against those who wronged him and his clan."
+        />
         <Character
           characterImg={selectCharacter("scorpion")}
           characterName="Scorpion"
         />
+      </section>
+      <section>
+        <PickerCharacter character={charactersData} />
       </section>
     </div>
   </main>

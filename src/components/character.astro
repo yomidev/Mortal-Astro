@@ -6,6 +6,10 @@ interface Props {
 const { characterImg, characterName } = Astro.props;
 ---
 
-<div class="w-1/2">
-  <img src={characterImg} alt={characterName} class="w-full" />
+<div class="h-[600px] mt-6">
+  <img
+    src={characterImg}
+    alt={characterName}
+    class="w-full h-full object-contain"
+  />
 </div>
