@@ -1,0 +1,12 @@
+---
+interface Props {
+  characterImg: string;
+  characterName: string;
+}
+
+const { characterImg, characterName } = Astro.props;
+---
+
+<div class="w-1/2">
+  <img src={characterImg} alt={characterName} class="w-full" />
+</div>
