@@ -12,24 +12,27 @@ import { charactersData } from "../const/charactersData";
     class="relative flex justify-center items-center size-full h-screen bg-center bg-cover bg-no-repeat"
     style="background-image: url('./img/background.jpg');"
   >
-    <div class="absolute bottom-10 left-10 w-[360px]">
-      <img src="./img/mortal_kombat_title.png" alt="" />
+    <div class="absolute inset-0 bg-black opacity-30 z-0"></div>
+    <div class="z-10 w-full">
+      <div class="absolute bottom-10 left-10 w-[360px]">
+        <img src="./img/mortal_kombat_title.png" alt="" />
+      </div>
+      <div class="absolute top-10 right-10 w-24">
+        <img src="./img/mk_11_logo.png" alt="" />
+      </div>
+      <section class="h-[500px] w-full flex justify-center relative">
+        <CharacterInfo
+          characterName="Scorpion"
+          characterDescription="Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, earum ad pariatur mollitia vitae porro autem nesciunt reiciendis accusamus? Ea repellendus molestiae quaerat, ad accusantium sapiente deserunt iste exercitationem eos."
+        />
+        <Character
+          characterImg={selectCharacter("scorpion")}
+          characterName="Scorpion"
+        />
+      </section>
+      <section>
+        <PickerCharacter character={charactersData} />
+      </section>
     </div>
-    <div class="absolute top-10 right-10 w-24">
-      <img src="./img/mk_11_logo.png" alt="" />
-    </div>
-    <section class="w-full flex justify-center relative">
-      <CharacterInfo
-        characterName="Scorpion"
-        characterDescription="Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, earum ad pariatur mollitia vitae porro autem nesciunt reiciendis accusamus? Ea repellendus molestiae quaerat, ad accusantium sapiente deserunt iste exercitationem eos."
-      />
-      <Character
-        characterImg={selectCharacter("scorpion")}
-        characterName="Scorpion"
-      />
-    </section>
-    <section>
-      <PickerCharacter character={charactersData} />
-    </section>
   </main>
 </Layout>
