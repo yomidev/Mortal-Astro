@@ -1,0 +1,31 @@
+---
+import selectCharacter from "../utils/selectCharacter";
+import Character from "./character.astro";
+interface Character {
+  id: number;
+  name: string;
+  description: string;
+}
+interface Props {
+  character: Character[];
+}
+const { character } = Astro.props;
+---
+
+<div>
+  <div class="flex gap-6 w-full justify-end pe-2">
+    {
+      character.slice(0, 5).map(({ name }) => (
+        <div
+          class="relative w-[150px] rounded bg-contain bg-center flex justify-center items-center text-center h-[400px] bg-no-repeat"
+          style="background-image: url('./img/background.jpg');"
+        >
+          <Character
+            characterImg={selectCharacter(name.toLowerCase())}
+            characterName={name}
+          />
+        </div>
+      ))
+    }
+  </div>
+</div>

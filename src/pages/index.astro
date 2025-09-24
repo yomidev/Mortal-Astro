@@ -1,8 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Character from "../components/character.astro";
-
-const selectCharacter = (name: string) => `./img/characters/${name}.png`;
+import CharacterInfo from "../components/characterInfo.astro";
+import selectCharacter from "../utils/selectCharacter";
+import PickerCharacter from "../components/PickerCharacter.astro";
+import { charactersData } from "../const/charactersData";
 ---
 
 <Layout title="Mortal Kombat Selector">
@@ -17,12 +19,17 @@ const selectCharacter = (name: string) => `./img/characters/${name}.png`;
       <img src="./img/mk_11_logo.png" alt="" />
     </div>
     <section class="w-full flex justify-center relative">
-      <div>
-        <Character
-          characterImg={selectCharacter("scorpion")}
-          characterName="Scorpion"
-        />
-      </div>
+      <CharacterInfo
+        characterName="Scorpion"
+        characterDescription="Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, earum ad pariatur mollitia vitae porro autem nesciunt reiciendis accusamus? Ea repellendus molestiae quaerat, ad accusantium sapiente deserunt iste exercitationem eos."
+      />
+      <Character
+        characterImg={selectCharacter("scorpion")}
+        characterName="Scorpion"
+      />
+    </section>
+    <section>
+      <PickerCharacter character={charactersData} />
     </section>
   </main>
 </Layout>
